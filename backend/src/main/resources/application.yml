@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: pennywise-finance
+  datasource:
+    url: jdbc:h2:file:./data/pennywise;AUTO_SERVER=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  flyway:
+    enabled: false
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:replace-with-32-plus-char-secret}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
